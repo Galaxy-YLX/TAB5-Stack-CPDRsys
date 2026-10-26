@@ -1,0 +1,51 @@
+# --- Node.js (Tauri 前端) ---
+node_modules/
+dist/
+dist-ssr/
+
+# --- Rust (Tauri 后端) ---
+target/
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# --- CMake / C 构建产物 ---
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+
+# --- Keil MDK / STM32 构建产物 ---
+Output/
+Listing/
+*.hex
+*.axf
+*.crf
+*.d
+*.lst
+*.map
+*.uvguix.*
+*.uvoptx
+*.bak
+*.dep
+JLinkLog.txt
+
+# --- IDE / 系统 ---
+.vscode/
+.idea/
+*.suo
+*.user
+Thumbs.db
+Desktop.ini
+.DS_Store

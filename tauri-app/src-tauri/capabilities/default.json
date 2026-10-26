@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicegui-org/tauri-v2/main/schema/capabilities.json",
+  "identifier": "default",
+  "description": "默认权限",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:allow-open",
+    {
+      "identifier": "core:event:default",
+      "allow": [
+        { "event": "status-update" },
+        { "event": "joystick-target" }
+      ]
+    }
+  ]
+}

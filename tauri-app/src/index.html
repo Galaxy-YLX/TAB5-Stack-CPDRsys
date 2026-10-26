@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=830, height=560, initial-scale=1.0">
+  <title>CPDR 抓娃娃机控制系统</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶栏 -->
+  <div id="topbar">
+    <span id="title">CPDR 抓娃娃机控制系统</span>
+    <span id="port-selector">
+      <select id="port-list"><option value="">扫描串口...</option></select>
+      <button id="btn-connect">连接</button>
+    </span>
+    <span id="status-text">就绪</span>
+  </div>
+
+  <!-- 主体 -->
+  <div id="main-area">
+    <!-- 左侧: 虚拟摇杆 -->
+    <div id="joystick-panel">
+      <div id="joystick-label">摇杆控制</div>
+      <canvas id="joystick-canvas" width="240" height="240"></canvas>
+      <div id="joystick-value">X: 0.0 mm &nbsp; Y: 0.0 mm</div>
+    </div>
+
+    <!-- 右侧: 信息面板 -->
+    <div id="info-panel">
+      <div class="info-row">
+        <span class="info-label">当前位置</span>
+        <span class="info-value" id="val-current">X:    0.0 mm  Y:    0.0 mm</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">目标位置</span>
+        <span class="info-value" id="val-target">X:    0.0 mm  Y:    0.0 mm</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">电机状态</span>
+        <span class="info-value" id="val-motors">
+          <span class="motor-dot offline" id="m1-dot"></span> M1
+          <span class="motor-dot offline" id="m2-dot"></span> M2
+          <span class="motor-dot offline" id="m3-dot"></span> M3
+          <span class="motor-dot offline" id="m4-dot"></span> M4
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">通信状态</span>
+        <span class="info-value" id="val-comm">错误: 0</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">归零状态</span>
+        <span class="info-value" id="val-zero">未归零</span>
+      </div>
+      <hr>
+      <div id="hint-text">
+        操作说明:<br>
+        • 拖拽摇杆 → 移动夹爪<br>
+        • [归零] 设置当前位置为原点<br>
+        • [抓取] 触发抓取动作<br>
+        • [急停] 紧急停止所有电机
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部按钮栏 -->
+  <div id="button-bar">
+    <button class="action-btn enable"  id="btn-enable">使能</button>
+    <button class="action-btn disable" id="btn-disable">失能</button>
+    <button class="action-btn zero"    id="btn-zero">归零</button>
+    <button class="action-btn grab"    id="btn-grab">抓取</button>
+    <button class="action-btn estop"   id="btn-estop">急停</button>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

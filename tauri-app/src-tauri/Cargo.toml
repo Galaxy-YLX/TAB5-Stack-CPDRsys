@@ -1,0 +1,14 @@
+[package]
+name = "cpdr-claw-machine"
+version = "2.0.0"
+edition = "2021"
+description = "CPDR 绳索驱动并联机器人抓娃娃机 — 纯Rust+Win32 FFI"
+
+# 零外部依赖 — 仅使用 Rust std + Win32 FFI
+# 编译: cargo build --offline
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+panic = "abort"
